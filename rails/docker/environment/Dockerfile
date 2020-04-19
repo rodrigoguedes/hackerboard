@@ -3,7 +3,12 @@ FROM ubuntu:18.04
 # Set ENV variables
 ENV APP_DIRECTORY=/app
 
-# Install NodeJS
+# RUN set -x && \
+#   apt-get update && \
+#   DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata && \
+#   rm -rf /var/lib/apt/lists/*
+
+# Install NodeJS and Yarn
 RUN set -x && \
   apt-get update && \
   apt-get install -y curl && \
@@ -11,6 +16,8 @@ RUN set -x && \
   bash nodesource_setup.sh && \
   apt-get install -y nodejs && \
   rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g yarn
 
 # Install Ruby
 RUN set -x && \
@@ -28,6 +35,9 @@ RUN set -x && \
   apt-get install -y libffi-dev && \
   apt-get install -y libgdbm5 && \
   apt-get install -y libgdbm-dev && \
+  apt-get install -y sqlite3 && \
+  apt-get install -y libsqlite3-dev && \
+  DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata && \
   rm -rf /var/lib/apt/lists/*
 
 # Install rbenv

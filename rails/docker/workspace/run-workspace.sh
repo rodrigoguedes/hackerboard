@@ -8,9 +8,11 @@ docker rm -f rails-workspace
 ### DOCKER RUN
 docker run -d \
   --name rails-workspace \
+  -p 3000:3000 \
   -v /Users/rodrigo/projects/hackerboard/rails/src:/app \
-	-it rodrigoguedes/rails-environment:local
+	-it rodrigoguedes/rails-environment:ruby_2.7.1-rails_6.0.2.2-1.1
+  
 
-docker exec -i -t rails-workspace bash:
+docker exec -i -t rails-workspace bash
 
 #docker logs -f rails-workspace
