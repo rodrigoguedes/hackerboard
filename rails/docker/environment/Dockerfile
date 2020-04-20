@@ -3,11 +3,6 @@ FROM ubuntu:18.04
 # Set ENV variables
 ENV APP_DIRECTORY=/app
 
-# RUN set -x && \
-#   apt-get update && \
-#   DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata && \
-#   rm -rf /var/lib/apt/lists/*
-
 # Install NodeJS and Yarn
 RUN set -x && \
   apt-get update && \
@@ -15,9 +10,8 @@ RUN set -x && \
   curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh &&\
   bash nodesource_setup.sh && \
   apt-get install -y nodejs && \
+  npm install -g yarn && \
   rm -rf /var/lib/apt/lists/*
-
-RUN npm install -g yarn
 
 # Install Ruby
 RUN set -x && \
@@ -63,6 +57,8 @@ RUN gem install bundler
 ARG VERSION_RAILS
 RUN gem install rails -v $VERSION_RAILS
 RUN rbenv rehash
+
+EXPOSE 3000
 
 # Install app
 WORKDIR $APP_DIRECTORY

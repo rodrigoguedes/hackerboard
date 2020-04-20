@@ -10,7 +10,7 @@ docker run -d \
   --name rails-workspace \
   -p 3000:3000 \
   -v /Users/rodrigo/projects/hackerboard/rails/src:/app \
-	-it rodrigoguedes/rails-environment:ruby_2.7.1-rails_6.0.2.2-1.1
+	-it rodrigoguedes/rails-environment:local
   
 
 docker exec -i -t rails-workspace bash
