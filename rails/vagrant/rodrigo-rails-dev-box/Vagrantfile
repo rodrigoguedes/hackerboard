@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure('2') do |config|
+  config.vm.box      = 'rodrigoguedes/rails-dev-box'
+  config.vm.hostname = 'rails-dev-box'
+  config.vm.boot_timeout = 6000
+
+  # private network setup
+  config.vm.network :private_network, ip: '192.168.50.2'
+
+  config.vm.synced_folder '../../src', '/Projects'
+
+  config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
+
+  config.vm.provider 'virtualbox' do |v|
+    v.cpus   = 2
+    v.memory = "8192"
+    # VM Customizations go here
+    v.customize ['modifyvm', :id, '--usb', 'off']
+    v.customize ['modifyvm', :id, '--usbehci',  'off']
+  end
+end
