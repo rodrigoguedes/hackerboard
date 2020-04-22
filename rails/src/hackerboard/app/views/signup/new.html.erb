@@ -1,0 +1,37 @@
+<% if @user.errors.any? %>
+  <p>
+    Verifique seus dados antes de continuar.
+  </p>
+
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @user, url: "/signup", method: :post do |f| %>
+  <p>
+    <%= f.label :name, "Seu nome" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :email, "Seu e-mail" %>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password, "Sua senha" %>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation, "Confirme sua senha" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.submit "Quero me cadastrar" %>
+  </p>
+<% end %>

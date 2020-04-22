@@ -1,0 +1,17 @@
+<%= flash[:notice] %>
+
+<%= form_with url: "/login" do |f| %>
+  <p>
+    <%= f.label :email, "Seu e-mail" %>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password, "Sua senha" %>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit "Acessar minha conta" %>
+  </p>
+<% end %>
