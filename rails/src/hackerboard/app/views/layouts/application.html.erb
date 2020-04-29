@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
+  <%= link_to t("menu.add_question"), new_question_path %>
+
   <body>
     <% if logged_in? %>
       <p>

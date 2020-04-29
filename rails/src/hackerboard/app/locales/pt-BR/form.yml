@@ -14,8 +14,12 @@ pt-BR:
       login:
         email: "Seu e-mail"
         password: "Sua senha"
+      
       signup:
         name: "Seu nome"
         email: "Seu e-mail"
         password: "Sua senha"
         password_confirmation: "Confirme sua senha"
+      
+      question:
+        title: "Titulo"

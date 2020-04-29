@@ -16,13 +16,17 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-i18n', '~> 6.0.0'
-end
 
-group :test do
-  gem 'capybara'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'ruby_gntp'
 end
 
 group :development, :test do
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
   gem 'factory_bot'
 end

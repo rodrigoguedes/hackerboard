@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     post "/entrar", to: "login#create", as: false
 
     delete "/sair", to: "login#destroy", as: "logout"
+
+    get "/nova-pergunta", to: "questions#new", as: "new_question"
   end
 end
