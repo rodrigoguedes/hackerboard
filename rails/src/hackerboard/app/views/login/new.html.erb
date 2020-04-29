@@ -1,17 +1,15 @@
-<%= flash[:notice] %>
-
-<%= form_with url: "/login" do |f| %>
+<%= form_with url: login_path do |f| %>
   <p>
-    <%= f.label :email, "Seu e-mail" %>
+    <%= f.label :email, t("form.labels.login.email") %>
     <%= f.email_field :email %>
   </p>
 
   <p>
-    <%= f.label :password, "Sua senha" %>
+    <%= f.label :password, t("form.labels.login.password") %>
     <%= f.password_field :password %>
   </p>
 
   <p>
-    <%= f.submit "Acessar minha conta" %>
+    <%= f.submit t("form.submit.login") %>
   </p>
 <% end %>

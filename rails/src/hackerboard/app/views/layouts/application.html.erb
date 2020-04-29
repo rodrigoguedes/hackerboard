@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p>
+        <%= t("user.greeting", name: current_user.name) %>
+      </p>
+      <%= button_to t("menu.logout"), logout_path, method: "delete" %>
+    <% else %>
+      <%= link_to t("menu.signup"), signup_path %>
+      <%= link_to t("menu.login"), login_path %>
+    <% end %>
+
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+
     <%= yield %>
   </body>
 </html>

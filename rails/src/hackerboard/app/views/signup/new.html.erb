@@ -1,7 +1,5 @@
 <% if @user.errors.any? %>
-  <p>
-    Verifique seus dados antes de continuar.
-  </p>
+  <p><%= t("form.error_message") %></p>
 
   <ul>
     <% @user.errors.full_messages.each do |message| %>
@@ -10,28 +8,28 @@
   </ul>
 <% end %>
 
-<%= form_with model: @user, url: "/signup", method: :post do |f| %>
+<%= form_with model: @user, url: signup_path, method: :post do |f| %>
   <p>
-    <%= f.label :name, "Seu nome" %>
+    <%= f.label :name, t("form.labels.signup.name") %>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :email, "Seu e-mail" %>
+    <%= f.label :email, t("form.labels.signup.email") %>
     <%= f.email_field :email %>
   </p>
 
   <p>
-    <%= f.label :password, "Sua senha" %>
+    <%= f.label :password, t("form.labels.signup.password") %>
     <%= f.password_field :password %>
   </p>
 
   <p>
-    <%= f.label :password_confirmation, "Confirme sua senha" %>
+    <%= f.label :password_confirmation, t("form.labels.signup.password_confirmation") %>
     <%= f.password_field :password_confirmation %>
   </p>
 
   <p>
-    <%= f.submit "Quero me cadastrar" %>
+    <%= f.submit %>
   </p>
 <% end %>

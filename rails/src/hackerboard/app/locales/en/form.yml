@@ -1,0 +1,20 @@
+en:
+  helpers:
+    submit:
+      user:
+        create: "Sign up"
+        udpate: "Update my profile"
+  form:
+    error_message: "Double check you info before continuing."
+    
+    submit:
+      login: "Sign in"
+    labels:
+      login:
+        email: "Your e-mail"
+        password: "Your password"
+      signup:
+        name: "Your name"
+        email: "Your e-mail"
+        password: "Your password"
+        password_confirmation: "Confirm your password"

@@ -2,22 +2,20 @@ require "rails_helper"
 
 feature "Login" do
   scenario "with valid credentials" do
-    user = User.create!(
-      name: "John Doe",
-      email: "john@example.org",
-      password: "test",
-      password_confirmation: "test"
-    )
+    user = create(:user)
 
-    visit "/"
-    click_link "Acessar minha conta"
-    fill_in "Seu e-mail", with: user.email
-    fill_in "Sua senha", with: "test"
-    click_button "Acessar minha conta"
+    login_as(user.email)
 
-    expect(current_path).to eql("/")
-    expect(page).to have_content("Olá, #{user.name}")
+    expect(current_path).to eql(home_path)
+    expect(page).to have_content(t("user.greeting", name: user.name))
   end
 
-  scenario "with invalid credentials"
+  scenario "with invalid credentials" do
+    visit home_path
+    click_link t("menu.login")
+    click_button t("form.submit.login")
+
+    expect(current_path).to eql(login_path)
+    expect(page).to have_content(alert("login.create"))
+  end
 end

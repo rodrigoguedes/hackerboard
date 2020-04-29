@@ -1,0 +1,9 @@
+pt-BR:
+  flash:
+    login:
+      create:
+        alert: "E-mail/senha inválidos"
+    
+    signup:
+      create:
+        notice: "Cadastro realizado com sucesso"

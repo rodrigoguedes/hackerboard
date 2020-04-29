@@ -11,6 +11,10 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+# require_relative 'support/feature_helpers'
+# Add additional requires below this line. Rails is not loaded until this point!
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true

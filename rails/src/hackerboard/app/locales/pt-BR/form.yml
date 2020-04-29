@@ -1,0 +1,21 @@
+pt-BR:
+  helpers:
+    submit:
+      user:
+        create: "Quero me cadastrar"
+        udpate: "Atualizar minha conta"
+
+  form:
+    error_message: "Verifique seus dados antes de continuar."
+    
+    submit:
+      login: "Acessar minha conta"
+    labels:
+      login:
+        email: "Seu e-mail"
+        password: "Sua senha"
+      signup:
+        name: "Seu nome"
+        email: "Seu e-mail"
+        password: "Sua senha"
+        password_confirmation: "Confirme sua senha"

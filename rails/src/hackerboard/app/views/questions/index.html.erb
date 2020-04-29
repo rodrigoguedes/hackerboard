@@ -1,8 +1,0 @@
-<% if logged_in? %>
-  <p>
-    Olá, <%= current_user.name %>
-  </p>
-<% else %>
-  <%= link_to "Quero me cadastrar", "/signup" %>
-  <%= link_to "Acessar minha conta", "/login" %>
-<% end %>

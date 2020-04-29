@@ -7,8 +7,8 @@ class SignupController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to "/login",
-      notice: "Cadastro realizado com sucesso"
+      redirect_to login_path,
+      notice: t("flash.signup.create.notice")
     else
       render :new
     end
