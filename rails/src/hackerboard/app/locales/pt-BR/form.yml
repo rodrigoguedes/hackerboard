@@ -4,6 +4,9 @@ pt-BR:
       user:
         create: "Quero me cadastrar"
         udpate: "Atualizar minha conta"
+      
+      question:
+        create: "Adicionar pergunta"
 
   form:
     error_message: "Verifique seus dados antes de continuar."
@@ -23,3 +26,5 @@ pt-BR:
       
       question:
         title: "Titulo"
+        content: "Descreva sua pergunta"
+        category: "Categoria"

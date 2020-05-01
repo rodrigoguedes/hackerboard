@@ -8,5 +8,9 @@ pt-BR:
       create:
         notice: "Cadastro realizado com sucesso"
     
+    questions:
+      create:
+        notice: "Pergunta adicionada com sucesso!"
+
     must_be_logged:
       alert: "Você precisa estar logado para acessar esta página."

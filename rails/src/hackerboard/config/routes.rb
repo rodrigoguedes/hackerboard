@@ -15,5 +15,8 @@ Rails.application.routes.draw do
     delete "/sair", to: "login#destroy", as: "logout"
 
     get "/nova-pergunta", to: "questions#new", as: "new_question"
+    post "/nova-pergunta", to: "questions#create", as: false
+
+    get "/perguntas/:id", to: "questions#show", as: "question"
   end
 end

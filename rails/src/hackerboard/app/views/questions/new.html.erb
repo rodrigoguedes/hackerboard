@@ -1,0 +1,22 @@
+<%= render "shared/form_erros", record: @question %>
+
+<%= form_with model: @question, url: new_question_path, method: :post do |f| %>
+  <p>
+    <%= f.label :title, t("form.labels.question.title") %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :content, t("form.labels.question.content") %>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.label :category_id, t("form.labels.question.category") %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

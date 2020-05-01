@@ -5,6 +5,10 @@ FactoryBot.define do
     password { "test" }
     password_confirmation { "test" }
   end
+
+  factory :category do
+    name { "Some Category"}
+  end
 end
 
 RSpec.configure do |config|

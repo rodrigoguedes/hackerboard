@@ -9,4 +9,8 @@ module Locale
   def set_locale
     I18n.locale = params[:locale].to_s
   end
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
 end

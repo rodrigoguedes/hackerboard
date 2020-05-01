@@ -1,12 +1,4 @@
-<% if @user.errors.any? %>
-  <p><%= t("form.error_message") %></p>
-
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render "shared/form_erros", record: @user %>
 
 <%= form_with model: @user, url: signup_path, method: :post do |f| %>
   <p>
