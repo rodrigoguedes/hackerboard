@@ -18,5 +18,10 @@ Vagrant.configure('2') do |config|
     # VM Customizations go here
     v.customize ['modifyvm', :id, '--usb', 'off']
     v.customize ['modifyvm', :id, '--usbehci',  'off']
+
+    # https://github.com/rails/rails/issues/16678
+    #v.customize ["guestproperty", "set", :id, "--timesync-threshold", 5000]
+    # https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/
+
   end
 end
