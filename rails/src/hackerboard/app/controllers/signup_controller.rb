@@ -1,4 +1,6 @@
 class SignupController < ApplicationController
+  layout "window"
+  
   def new
     @user = User.new
   end

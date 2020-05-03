@@ -5,22 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'window', media: 'all' %>
   </head>
   <body>
     <%= render "shared/header" %>
     <%= render "shared/flash_messages" %>
 
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-
     <div class="content">
       <section class="main">
         <%= yield %>
       </section>
-
-      <aside class="sidebar">
-      </aside>
     </div>
   </body>
 </html>

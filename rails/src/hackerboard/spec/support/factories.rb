@@ -9,8 +9,11 @@ FactoryBot.define do
   factory :category do
     name { "Some Category"}
   end
-end
 
-RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
+  factory :question do
+    title { "Some title"}
+    content { "Some content" }
+    association :category
+    association :user
+  end
 end

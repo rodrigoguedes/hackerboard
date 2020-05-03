@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+  layout "window"
   def new
   end
 

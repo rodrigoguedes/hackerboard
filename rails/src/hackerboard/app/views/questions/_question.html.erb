@@ -1,0 +1,23 @@
+<article class="question">
+  <h2>
+    <%= link_to question.title, question_path(question) %>
+  </h2>
+
+  <ul class="meta">
+    <li class="who">
+      <%= render question.user %>
+
+      perguntou há 10 minutos
+    </li>
+
+    <li class="views icon">
+      1100
+      <span>visitas</span>
+    </li>
+
+    <li class="answers icon">
+      22
+      <span>respostas</span>
+    </li>
+  </ul>
+</article>

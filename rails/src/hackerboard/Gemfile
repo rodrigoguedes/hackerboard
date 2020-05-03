@@ -10,6 +10,7 @@ gem 'sass-rails', '>= 6'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bcrypt'
 gem 'redcarpet'
+gem 'paginate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -25,9 +26,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_bot'
 end
 
 group :test do
   gem 'capybara'
-  gem 'factory_bot'
+  gem 'nokogiri'
 end

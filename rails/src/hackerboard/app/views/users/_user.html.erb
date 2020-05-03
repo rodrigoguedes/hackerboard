@@ -1,0 +1,6 @@
+<%= link_to user_path(user), class: "user" do %>
+  <%= avatar_tag(user) %>
+  <span class="name">
+    <%= user.name %>
+  </span>
+<% end %>

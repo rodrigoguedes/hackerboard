@@ -2,10 +2,15 @@ class QuestionsController < ApplicationController
   before_action :require_logged_user, only: %i[ new create]
 
   def index
+    @questions = Question
+      .order(created_at: :desc)
+      .paginate(params[:p])
   end
 
   def new
     @question = Question.new
+
+    render layout:"window"
   end
 
   def create
@@ -16,7 +21,7 @@ class QuestionsController < ApplicationController
         notice: t("flash.questions.create.notice")
     else
       # puts @question.
-      render :new
+      render :new, layout: "window"
     end
   end
 

@@ -25,6 +25,6 @@ pt-BR:
         password_confirmation: "Confirme sua senha"
       
       question:
-        title: "Titulo"
+        title: "Título"
         content: "Descreva sua pergunta"
         category: "Categoria"

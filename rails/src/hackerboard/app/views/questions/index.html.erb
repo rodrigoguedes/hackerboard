@@ -1,0 +1,16 @@
+<h1>
+  <%= t("titles.questions.latest_questions") %>
+</h1>
+
+<ul class="filters all">
+  <li class="all">
+    <%= link_to t("question.filters.all") %>
+  </li>
+
+  <li class="unanswered">
+    <%= link_to t("question.filters.unanswered") %>
+  </li>
+</ul>
+
+<%= render @questions, paginate: true %>
+<%= paginate @questions %>

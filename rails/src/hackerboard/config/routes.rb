@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   scope "/:locale" do
     get "/", to: "questions#index", as: "home"
 
+    get "/", to: "users#show", as: "user"
+
     get "/cadastre-se", to: "signup#new", as: "signup"
     post "/cadastre-se", to: "signup#create", as: false
 

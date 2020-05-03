@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+rake db:drop db:create db:schema:load db:seed
+or
+rake db:setup --trace

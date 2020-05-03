@@ -1,0 +1,5 @@
+pt-BR:
+  question:
+    filters:
+      all: "Todas"
+      unanswered: "Não respondidas"

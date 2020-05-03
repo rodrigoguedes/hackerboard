@@ -1,0 +1,11 @@
+pt-BR:
+  titles:
+    login:
+      new: "Acesse sua conta"
+
+    signup:
+      new: "Cadastre-se!"
+
+    questions:
+      new: "Adicione uma nova pergunta"
+      latest_questions: "Últimas perguntas"

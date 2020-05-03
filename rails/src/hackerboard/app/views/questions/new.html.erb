@@ -1,6 +1,8 @@
-<%= render "shared/form_erros", record: @question %>
+<h1><%= t("titles.questions.new") %></h1>
+<p><%= t("descriptions.questions.new") %></p>
 
 <%= form_with model: @question, url: new_question_path, method: :post do |f| %>
+  <%= render "shared/form_erros", record: @question %>
   <p>
     <%= f.label :title, t("form.labels.question.title") %>
     <%= f.text_field :title %>
@@ -18,5 +20,6 @@
 
   <p>
     <%= f.submit %>
+    <%= link_to t("actions.back"), home_path %>
   </p>
 <% end %>
