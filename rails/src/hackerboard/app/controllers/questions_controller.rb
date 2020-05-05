@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question
       .order(created_at: :desc)
+      .includes(:user) #Eager load
       .paginate(params[:p])
   end
 
