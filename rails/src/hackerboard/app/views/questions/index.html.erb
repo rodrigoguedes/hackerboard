@@ -4,11 +4,11 @@
 
 <ul class="filters all">
   <li class="all">
-    <%= link_to t("question.filters.all") %>
+    <%= link_to t("question.filters.all"), home_path %>
   </li>
 
   <li class="unanswered">
-    <%= link_to t("question.filters.unanswered") %>
+    <%= link_to t("question.filters.unanswered"), home_path(filter: "unanswered") %>
   </li>
 </ul>
 
