@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     post "/nova-pergunta", to: "questions#create", as: false
 
     get "/perguntas/:id", to: "questions#show", as: "question"
+
+    post "/perguntas/:question_id/repostas", to: "replies#create", as: "new_reply"
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_020202) do
+ActiveRecord::Schema.define(version: 2020_05_05_032453) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2020_04_30_020202) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+  create_table "replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_replies_on_question_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -40,4 +50,6 @@ ActiveRecord::Schema.define(version: 2020_04_30_020202) do
 
   add_foreign_key "questions", "categories"
   add_foreign_key "questions", "users"
+  add_foreign_key "replies", "questions"
+  add_foreign_key "replies", "users"
 end

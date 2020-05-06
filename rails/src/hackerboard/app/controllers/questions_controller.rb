@@ -2,10 +2,7 @@ class QuestionsController < ApplicationController
   before_action :require_logged_user, only: %i[ new create]
 
   def index
-    @questions = Question
-      .order(created_at: :desc)
-      .includes(:user) #Eager load
-      .paginate(params[:p])
+    @questions = QuestionFilter.filter(params)
   end
 
   def new
@@ -28,6 +25,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @reply = Reply.new
   end
 
   private

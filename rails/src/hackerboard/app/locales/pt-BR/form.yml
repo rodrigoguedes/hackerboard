@@ -7,13 +7,20 @@ pt-BR:
       
       question:
         create: "Adicionar pergunta"
+      
+      reply:
+        create: "Enviar resposta"
 
   form:
     error_message: "Verifique seus dados antes de continuar."
     
     submit:
       login: "Acessar minha conta"
+    
     labels:
+      reply:
+        content: "Mande sua resposta"
+
       login:
         email: "Seu e-mail"
         password: "Sua senha"

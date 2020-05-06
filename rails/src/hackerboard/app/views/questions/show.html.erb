@@ -1,2 +1,21 @@
 <h1><%= @question.title %></h1>
 <%= markdown @question.content %>
+
+<% if logged_in? %>
+  <%= form_with model: @reply, url: new_reply_path(@question), method: :post do |f| %>
+    <p>
+      <%= f.label :content, t("form.labels.reply.content") %>
+      <%= f.text_area :content %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% else %>
+  <p class="warning">
+    <%= t("reply.you_must_be_logged_in_html", 
+      url: login_path(return_to: request.fullpath)
+    ) %>
+  </p>
+<% end %>

@@ -11,3 +11,6 @@ pt-BR:
         title: "Título"
         content: "Conteúdo"
         category: "Categoria"
+
+      reply:
+        content: "Resposta"

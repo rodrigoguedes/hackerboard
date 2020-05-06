@@ -48,9 +48,9 @@ describe User do
 
     it "requires unique email" do
       # existing = FactoryBot.create(:user)
-      existing = create(:user)
+      existing = create(:user, email: "john@example.org")
 
-      user = User.create(email: "John@example.org")
+      user = User.create(email: "john@example.org")
       expect(user.errors[:email]).not_to be_empty
     end
   end
