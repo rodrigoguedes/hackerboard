@@ -16,7 +16,9 @@ module Authentication
   end
 
   def require_logged_user
-    redirect_to login_path,
+    return_to = request.fullpath if request.get?
+
+    redirect_to login_path(return_to: return_to),
       alert: t("flash.must_be_logged.alert") unless logged_in?
   end
 end

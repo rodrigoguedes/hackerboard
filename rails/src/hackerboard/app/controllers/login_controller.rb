@@ -9,8 +9,7 @@ class LoginController < ApplicationController
     if @user && @user.authenticate(params[:password].to_s)
       reset_session
       session[:user_id] = @user.id
-
-      redirect_to home_path
+      redirect_to ReturnTo.new(home_path, params[:return_to]).url
     else
       flash.now[:alert] = t("flash.login.create.alert")
       render :new 
