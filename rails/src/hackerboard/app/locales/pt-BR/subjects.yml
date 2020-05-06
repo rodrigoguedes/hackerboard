@@ -1,0 +1,4 @@
+pt-BR:
+  welcome_mailer:
+    welcome:
+      subject: "Bem-vindo ao Hackerboard"

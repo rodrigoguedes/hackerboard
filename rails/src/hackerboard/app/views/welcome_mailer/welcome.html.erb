@@ -1,0 +1,24 @@
+<p>
+Olá, <%= @user.name %>!
+</p>
+
+<p>
+  Você se cadastrou no <%= link_to "Hackerboard", home_url %>.
+  Para acessar a sua conta, acesse a URL abaixo e informe o e-mail cadastrado.
+</p>
+
+<ul>
+  <li>
+    <strong>E-mail:</strong><%= @user.email %>
+  </li>
+
+  <li>
+    <strong>URL de Login:</strong><%= link_to login_url, login_url %>
+  </li>
+</ul>
+
+<p>
+  Abraços,<br><br>
+  --<br>
+  Equipe Hackerboard
+</p>

@@ -9,8 +9,11 @@ class SignupController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      # TODO: Improvement the send email using sidekiq (background process)
+      WelcomeMailer.welcome(@user.email, @user.name).deliver
+
       redirect_to login_path,
-      notice: t("flash.signup.create.notice")
+        notice: t("flash.signup.create.notice")
     else
       render :new
     end
