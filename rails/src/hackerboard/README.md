@@ -26,3 +26,6 @@ Things you may want to cover:
 rake db:drop db:create db:schema:load db:seed
 or
 rake db:setup --trace
+
+Autotest
+bundle exec guard -p
