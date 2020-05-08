@@ -20,7 +20,8 @@ Vagrant.configure('2') do |config|
   forwarded_port[3000]    #rails
   forwarded_port[1080]    #mailcatcher
   forwarded_port[3306]    #mysql
-  forwarded_port[3306]    #elasticsearch
+  forwarded_port[9200]    #elasticsearch
+  forwarded_port[5601]    #kibana
 
   # config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
 
