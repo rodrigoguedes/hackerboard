@@ -18,12 +18,15 @@ echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo -E apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# elasticsearch
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 echo updating package information
 apt-get -y update >/dev/null 2>&1
 
 install Ruby ruby-full
-install 'development tools' build-essential autoconf libtool
+install 'development tools' build-essential autoconf libtool jq
 
 # echo installing current RubyGems
 gem update --system -N >/dev/null 2>&1
@@ -73,8 +76,11 @@ install 'MuPDF' mupdf mupdf-tools
 install 'FFmpeg' ffmpeg
 install 'Poppler' poppler-utils
 
+install 'Elasticsearch' elasticsearch
+
 # Needed for docs generation.
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+sudo ln  -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
 echo "test -d /vagrant/rails && cd /vagrant/rails" >> /home/vagrant/.bashrc
 
