@@ -10,7 +10,7 @@ class SignupController < ApplicationController
 
     if @user.save
       # TODO: Improvement the send email using sidekiq (background process)
-      WelcomeMailer.welcome(@user.email, @user.name).deliver
+      WelcomeMailer.welcome(@user).deliver
 
       redirect_to login_path,
         notice: t("flash.signup.create.notice")
