@@ -6,18 +6,17 @@
   <ul class="meta">
     <li class="who">
       <%= render question.user %>
-
-      perguntou há 10 minutos
+      <time datetime="<%= question.created_at.xmlschema %>">
+        <%= t("question.relative_time", time: time_ago_in_words(question.created_at))%>
+      </time>
     </li>
 
     <li class="views icon">
-      1100
-      <span>visitas</span>
+      <%= t("question.hits_html", count: question.hits_count) %>
     </li>
 
     <li class="answers icon">
-      22
-      <span>respostas</span>
+      <%= t("question.replies_count_html", count: question.replies_count) %>
     </li>
   </ul>
 </article>

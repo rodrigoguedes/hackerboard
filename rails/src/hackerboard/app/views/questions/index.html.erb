@@ -2,7 +2,7 @@
   <%= t("titles.questions.latest_questions") %>
 </h1>
 
-<ul class="filters all">
+<ul class="filters <%= question_filter %>">
   <li class="all">
     <%= link_to t("question.filters.all"), home_path %>
   </li>
@@ -14,3 +14,9 @@
 
 <%= render @questions, paginate: true %>
 <%= paginate @questions %>
+
+<% content_for :sidebar do %>
+  <%= render "shared/search" %>
+  <%= render "shared/category_list" %>
+  <%= render "shared/welcome_users" %>
+<% end %>

@@ -1,21 +1,23 @@
-<h1><%= @question.title %></h1>
-<%= markdown @question.content %>
+<% content_for :title do %>
+<%= @question.title %> - 
+<% end %>
 
-<% if logged_in? %>
-  <%= form_with model: @reply, url: new_reply_path(@question), method: :post do |f| %>
-    <p>
-      <%= f.label :content, t("form.labels.reply.content") %>
-      <%= f.text_area :content %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
-<% else %>
-  <p class="warning">
-    <%= t("reply.you_must_be_logged_in_html", 
-      url: login_path(return_to: request.fullpath)
-    ) %>
+<div class="question-details">
+  <h1><%= @question.title %></h1>
+  <p class="about">
+    <%= render @question.user %>
+    <time datetime="<%= @question.created_at.xmlschema %>">
+      <%= t("question.relative_time", time: time_ago_in_words(@question.created_at))%>
+    </time>
   </p>
+
+  <%= markdown @question.content %>
+</div>
+
+<%= render "replies", replies: @replies, question: @question,
+  reply: @reply %>
+
+<% content_for :sidebar do %>
+  <%= render "info", question: @question %>
+  <%= render "shared/search" %>
 <% end %>

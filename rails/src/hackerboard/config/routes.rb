@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get "/cadastre-se", to: "signup#new", as: "signup"
     post "/cadastre-se", to: "signup#create", as: false
 
+    get "/categorias/:category_id", to: "categories#show", as: "category"
+
     get "/entrar", to: "login#new", as: "login"
     post "/entrar", to: "login#create", as: false
 
@@ -18,6 +20,11 @@ Rails.application.routes.draw do
 
     get "/nova-pergunta", to: "questions#new", as: "new_question"
     post "/nova-pergunta", to: "questions#create", as: false
+
+    get "/perguntas/:id/feed",
+      to: "questions#feed",
+      as: "question_feed",
+      format: "atom"
 
     get "/perguntas/:id", to: "questions#show", as: "question"
 

@@ -1,0 +1,25 @@
+<div class="answers">
+  <h2><%= t("question.replies_count_html", count: question.replies_count) %></h2>
+
+  <%= render replies %>
+</div>
+
+<% if logged_in? %>
+  <%= form_with model: reply, url: new_reply_path(question), method: :post,
+    class: "new_reply" do |f| %>
+    <p>
+      <%= f.label :content, t("form.labels.reply.content") %>
+      <%= f.text_area :content %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% else %>
+  <p class="warning">
+    <%= t("reply.you_must_be_logged_in_html", 
+      url: login_path(return_to: request.fullpath)
+    ) %>
+  </p>
+<% end %>

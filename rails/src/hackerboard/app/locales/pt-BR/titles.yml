@@ -9,3 +9,8 @@ pt-BR:
     questions:
       new: "Adicione uma nova pergunta"
       latest_questions: "Últimas perguntas"
+    
+    slidebar:
+      search: "Buscar"
+      categories: "Categorias"
+      welcome_users: "Novo no Hackerboard"

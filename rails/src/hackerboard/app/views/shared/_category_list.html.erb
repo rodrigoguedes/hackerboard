@@ -1,0 +1,10 @@
+<h1><%= t("titles.slidebar.categories") %></h1>
+
+<ul class="categories list">
+  <% category_list.each do |category| %>
+    <li>
+      <%= link_to category.name, category_path(category) %>
+      <span class="count"><%= category.questions_count %></span>
+    </li>
+  <% end %>
+</ul>

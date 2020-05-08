@@ -1,0 +1,9 @@
+<h1><%= t("titles.slidebar.welcome_users") %></h1>
+
+<ul class="users list">
+  <% User.recent.each do |user| %>
+    <li>
+      <%= render user %>
+    </li>
+  <% end %>
+</ul>

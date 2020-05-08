@@ -3,3 +3,28 @@ pt-BR:
     filters:
       all: "Todas"
       unanswered: "Não respondidas"
+
+    relative_time: "perguntou há %{time}"
+
+    hits_html:
+      zero: "nenhuma visita"
+      one: "1 <span>visita</span>"
+      other: "%{count} <span>visitas</span>"
+
+    replies_count_html:
+      zero: "nenhuma resposta"
+      one: "1 <span>resposta</span>"
+      other: "%{count} <span>respostas</span>"
+
+    info:
+      hits_html:
+        one: "<strong>%{count}</strong> visita"
+        other: "<strong>%{count}</strong> visitas"
+
+      replies_html:
+        one: "<strong>%{count}</strong> resposta"
+        other: "<strong>%{count}</strong> respostas"
+
+    feed:
+      replied_by : |
+        Resposta enviada por: %{name}

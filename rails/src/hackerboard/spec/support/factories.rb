@@ -16,4 +16,10 @@ FactoryBot.define do
     association :category
     association :user
   end
+
+  factory :reply do
+    content { "Some content" }
+    association :question
+    association :user
+  end
 end

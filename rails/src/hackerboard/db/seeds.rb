@@ -35,7 +35,18 @@ questions = []
   questions << FactoryBot.create(:question,
     category: categories.sample,
     user: users.sample,
-    title: Faker::Lorem.question,
+    title: Faker::Lorem.question(word_count: [*1..4].sample),
     content: Faker::Lorem.paragraphs(number: [*1..4].sample).join("\n\n")
+  )
+end
+
+# create 100 replies
+replies = []
+
+100.times do
+  replies << FactoryBot.create(:reply,
+    content: Faker::Lorem.paragraphs(number: [*1..3].sample).join("\n\n"),
+    user: users.sample,
+    question: questions.sample
   )
 end

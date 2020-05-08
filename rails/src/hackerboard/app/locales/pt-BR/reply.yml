@@ -1,4 +1,4 @@
 pt-BR:
   reply:
-    you_must_be_logged_in_html: |
-      Para responder, você precisa estar <a href="%{url}">logado</a>
+    you_must_be_logged_in_html: Para responder, você precisa estar <a href="%{url}">logado</a>
+    relative_time: "respondeu há %{time}"

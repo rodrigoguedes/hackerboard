@@ -25,7 +25,18 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @question.hit!
+    
     @reply = Reply.new
+    @replies = @question.replies.includes(:user)
+  end
+
+  def feed
+    @question = Question.find(params[:id])
+    @replies = @question
+      .replies
+      .feed
+      .includes(:user)
   end
 
   private

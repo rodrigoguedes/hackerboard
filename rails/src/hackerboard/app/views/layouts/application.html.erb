@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hackerboard</title>
+    <title><%= yield :title %>Hackerboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,6 +17,7 @@
       </section>
 
       <aside class="sidebar">
+        <%= yield :sidebar %>
       </aside>
     </div>
   </body>

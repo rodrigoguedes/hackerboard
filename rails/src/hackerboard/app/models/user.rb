@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  scope :recent, -> {
+    order(created_at: :desc).limit(20)
+  }
+
   has_many :questions
   has_many :replies
 end

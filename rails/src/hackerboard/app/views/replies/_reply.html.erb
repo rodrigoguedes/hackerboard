@@ -1,0 +1,11 @@
+<article class="answer" id="<%= dom_id(reply) %>">
+  <p class="about">
+    <%=render reply.user %>
+
+    <time datetime="<%= reply.created_at.xmlschema %>">
+      <%= t("reply.relative_time", time: time_ago_in_words(reply.created_at))%>
+    </time>
+  </p>
+
+  <%= markdown(reply.content) %>
+</article>
