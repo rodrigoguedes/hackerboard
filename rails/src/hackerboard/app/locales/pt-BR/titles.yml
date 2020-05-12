@@ -9,6 +9,8 @@ pt-BR:
     questions:
       new: "Adicione uma nova pergunta"
       latest_questions: "Últimas perguntas"
+      search: "Busca"
+      search_with_term: "Busca %{term}"
     
     slidebar:
       search: "Buscar"

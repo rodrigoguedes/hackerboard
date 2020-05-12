@@ -28,3 +28,17 @@ pt-BR:
     feed:
       replied_by : |
         Resposta enviada por: %{name}
+
+    search_results_html:
+      zero: |
+        Sua busca por <strong>%{term}</strong> retornou
+        não retornou resultados.
+      
+      one: |
+        Sua busca por <strong>%{term}</strong> retornou
+        retornou 1 resultado.
+
+      other: |
+        Sua busca por <strong>%{term}</strong> retornou
+        retornou %{count} resultados.
+

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     get "/nova-pergunta", to: "questions#new", as: "new_question"
     post "/nova-pergunta", to: "questions#create", as: false
 
+    get "/busca/perguntas", to: "questions#search", as: "question_search"
+
     get "/perguntas/:id/feed",
       to: "questions#feed",
       as: "question_feed",

@@ -31,6 +31,10 @@ class QuestionsController < ApplicationController
     @replies = @question.replies.includes(:user)
   end
 
+  def search
+    @questions = QuestionSearch.search(params)
+  end
+
   def feed
     @question = Question.find(params[:id])
     @replies = @question

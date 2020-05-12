@@ -11,3 +11,6 @@ bundle exec guard -p
 `gem install mailcatcher`
 
 `mailcatcher --foreground --ip 0.0.0.0`
+
+#### Rake command for importal all models to elastichsearch
+`rake environment elasticsearch:import:all FORCE=y`

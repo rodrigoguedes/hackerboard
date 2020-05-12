@@ -1,8 +1,8 @@
 <h1><%= t("titles.slidebar.search") %></h1>
 
-<form action="/search">
+<%= form_tag question_search_path, method: :get do %>
   <p>
-    <input type="search" autocomplete="" results="5">
-    <input type="submit" value="OK">
+    <%= search_field_tag :q, nil, autocomplete: "hackerboard-questions", result: 5 %>
+    <%= submit_tag "OK" %>
   </p>
-</form>
+<% end %>

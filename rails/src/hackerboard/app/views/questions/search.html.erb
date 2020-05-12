@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  <%= t("titles.questions.search_with_term", term: params[:q]) %> -
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "shared/search" %>
+<% end %>
+
+<h1><%= t("titles.questions.search") %></h1>
+<p>
+  <%= t("question.search_results_html", count: @questions.count,
+    term: params[:q]) %>
+</p>
+
+<%= render @questions, paginate: true%>
+<%= paginate @questions %>
