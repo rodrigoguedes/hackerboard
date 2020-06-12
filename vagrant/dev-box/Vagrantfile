@@ -9,16 +9,12 @@ Vagrant.configure('2') do |config|
   # private network setup
   config.vm.network :private_network, ip: '192.168.50.2'
 
-  # config.vm.synced_folder '../../rails/src', '/Projects'
-  # config.vm.synced_folder '../../nodejs/src/hackerboard', '/Projects'
-  # config.vm.synced_folder '/Users/rodrigo/projects/hackerboard', '/Projects'
+  synced_folder = ->(guest_dir, host_dir, nfs = false) do
+    config.vm.synced_folder guest_dir, host_dir, :nfs => nfs
+  end
 
-  if (host == osx) then
-    config.vm.synced_folder '../../nodejs/src/hackerboard', '/Projects', :nfs => true
-  else
-    config.vm.synced_folder '../../nodejs/src/hackerboard', '/Projects'
-  end if
-  # config.vm.synced_folder '../../nodejs/src/hackerboard', '/Projects', :nfs => true, mount_options: ['actimeo=1']
+  synced_folder['../../rails/src', '/Projects/rails']
+  synced_folder['../../nodejs/src/hackerboard', '/Projects/nodejs', true]
 
   forwarded_port = ->(guest, host = guest) do
     config.vm.network :forwarded_port,
@@ -33,8 +29,6 @@ Vagrant.configure('2') do |config|
   forwarded_port[3306]    #mysql
   forwarded_port[9200]    #elasticsearch
   forwarded_port[5601]    #kibana
-
-  # config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
 
   config.vm.provider 'virtualbox' do |v|
     v.cpus   = 2
